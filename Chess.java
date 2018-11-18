@@ -1,7 +1,7 @@
 public class Chess{
   public static void main(String[] args) {
     Piece[][] board = initialize();
-    //System.out.println(board);
+    printBoard(board);
   }
   public static Piece[][] initialize(){
     //This should set up a board with the initial placement
@@ -12,5 +12,14 @@ public class Chess{
       }
     }
     return board;
+  }
+  public static void printBoard(Piece[][] board){
+    for(int i = 0; i < board.length;i++){
+      for(int j = 0;j < board[i].length;j++){
+        System.out.printf(" %s ",board[i][j].getColor() + board[i][j].getType());
+      }
+      System.out.printf("%n");
+    }
+    //board no longer looks like a word.
   }
 }

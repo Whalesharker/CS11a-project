@@ -18,6 +18,10 @@ public class Piece{
     return type;
     //returns a letter representing the piece. For the base piece it should be "e" to represent "empty"
   }
+  public String getColor(){
+    return color;
+    //Returns the color of the string. Empty tiles shouldn't have a color.
+  }
   public void setColor(String c){
     color = c;
     //a color is passed to this during the intial setup.
