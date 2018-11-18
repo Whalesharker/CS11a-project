@@ -28,21 +28,26 @@ public class Pawn extends Piece{
     else if (x - newx == 0){
       //this is the scenario for the pawn just moving straight.
       for(int i = y; i<=newy;i++){
-        if(board[x][y].getType() !="e"){
+        if(board[y][x].getType() !="e"){
           good = false;
           //returns false if any of the tiles from the current location to the new location are occupied.
         }
       }
     }
-    else if(Math.abs(x - newx) == 1 && board[newx][newy].getType()== "e"){
+    else if(Math.abs(x - newx) == 1 && board[newy][newx].getType()== "e"){
       //scenario for the pawn capturing something by moving diagnoally.
       //checks to make sure that it's moving one across and that there's a piece where it's trying to capture.
       //This probably could just be an else statement, but I wanted to do one final check just in case I missed something.
+      good = false;
     }
     if(good == true){
       firstmove = false;
       //notes that the pawn has made the first move if it successfully moves.
     }
     return good;
+  }//End of movevalid
+  public String getType(){
+    return "P";
+    //I wanted to change the type variable of the class but that wasn't working.
   }
 }
