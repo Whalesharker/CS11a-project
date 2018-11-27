@@ -68,4 +68,42 @@ public class Chess{
     //(Unless it's a king or an allied piece.)
     return board;
   }
+
+  public static Piece[][] Priority(Piece[][] board){
+    //The purpose of this method is to decide which move it should make of all its possible movements
+    for(int i = 0; i < board.length;i++){
+      for(int j = 0; j < board.length;j++){
+        if(PossibleMove==true){
+          if(DangerousMove==true){
+            if(Piece is king){
+              priority[i][j]=priority[i][j]-100
+            }
+            if(Piece is queen){
+              priority[i][j]=priority[i][j]-5;
+            }
+            if(Piece is Rook||Knight||Bishop){
+              priority[i][j]=priority[i][j]-3
+            }
+            else{
+              priority[i][j]=priority[i][j]-1
+            }
+          }
+          if(Trade==true){
+            if(kill==King){
+              priority[i][j]= priority[i][j]+100;
+            }
+            else if(kill==Queen){
+              priority[i][j]= priority[i][i]+5;
+            }
+            else if(kill==Rook||kill==Knight||kill==Bishop){
+              priority[i][j]= priority[i][j]+3;
+            }
+            else{
+              priority[i][j]=1;
+          }
+        }
+      }
+    }
+    return priority[i][j];
+  }
 }
