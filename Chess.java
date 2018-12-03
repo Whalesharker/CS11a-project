@@ -6,11 +6,16 @@ public class Chess{
     printIndex(board);
     System.out.println(board[6][6].moveValid(6,6,6,4,board));
     System.out.println(board[6][6].moveValid(6,6,6,5,board));
-    if(board[6][6].moveValid(6,6,6,5,board)){
-      board = move(6,6,6,5,board);
-    }
-    else{
-      System.out.println("Orca");
+    boolean continue == true;
+    do While (continue==true)
+    {
+      if(board[6][6].moveValid(6,6,6,5,board)){
+        board = move(6,6,6,5,board);
+      }
+      else{
+        System.out.println("Orca");
+      }
+      Player = ColorChange(Player);
     }
     printBoard(board);
     //Alright, thing to note: the first index is y and the 2nd one is x. Yup. That's confusing.
@@ -68,9 +73,19 @@ public class Chess{
     //(Unless it's a king or an allied piece.)
     return board;
   }
+  public String Player ="W";
+  public String ColorChange(Player args){
+    if (Player =="W"){
+      return "B";
+    }
+    if (Player == "B"){
+      return "W";
+    }
+  }
 
-  public static Piece[][] Priority(Piece[][] board){
+  /*public static Piece[][] Priority(Piece[][] board){
     //The purpose of this method is to decide which move it should make of all its possible movements
+    //we should leave this in place, but turn all of it into a comment
     for(int i = 0; i < board.length;i++){
       for(int j = 0; j < board.length;j++){
         if(PossibleMove==true){
@@ -106,4 +121,5 @@ public class Chess{
     }
     return priority[i][j];
   }
+  */
 }
