@@ -118,7 +118,7 @@ public class King extends Piece{
       }
     }
     //check for knights
-    for (i=1;i<3;i++){
+    for (int i=1;i<3;i++){
       if (board[newx-i][newy-(3-i)].getType()=="N"){
         if (board[newx-i][newy-(3-1)].getColor()=="B"){
           check = true;
@@ -259,7 +259,7 @@ public class King extends Piece{
       }
     }
     //check for knights
-    for (i=1;i<3;i++){
+    for (int i=1;i<3;i++){
       if (board[newx-i][newy-(3-i)].getType()=="N"){
         if (board[newx-i][newy-(3-1)].getColor()=="B"){
           check = true;
