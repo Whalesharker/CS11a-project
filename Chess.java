@@ -6,7 +6,7 @@ public class Chess{
     printIndex(board);
     System.out.println(board[6][6].moveValid(6,6,6,4,board));
     System.out.println(board[6][6].moveValid(6,6,6,5,board));
-    boolean continue == true;
+    boolean continue = true;
     do While (continue==true)
     {
       if(board[6][6].moveValid(6,6,6,5,board)){
