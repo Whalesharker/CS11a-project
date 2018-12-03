@@ -26,7 +26,7 @@ public class King extends Piece{
   }
   //makes sure black king cane move without putting itself into check
   public boolean WhiteCheck(int x, int y, int newx, int newy, Piece[][] board){
-    check = false;
+    boolean check = false;
     //checks for check from Rooks and Queens
     //could probably be separated into classes for each piece on the board
     for (int i = 0; i<8; i++){
