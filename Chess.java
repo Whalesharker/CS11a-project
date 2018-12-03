@@ -4,11 +4,8 @@ public class Chess{
     printBoard(board);
     System.out.println("");
     printIndex(board);
-    System.out.println(board[6][6].moveValid(6,6,6,4,board));
-    System.out.println(board[6][6].moveValid(6,6,6,5,board));
-    boolean continue == true;
-    do While (continue==true)
-    {
+    boolean c = true;
+    do{
       if(board[6][6].moveValid(6,6,6,5,board)){
         board = move(6,6,6,5,board);
       }
@@ -16,7 +13,7 @@ public class Chess{
         System.out.println("Orca");
       }
       Player = ColorChange(Player);
-    }
+    }while (c == true);
     printBoard(board);
     //Alright, thing to note: the first index is y and the 2nd one is x. Yup. That's confusing.
 
