@@ -28,7 +28,7 @@ public class Pawn extends Piece{
     else if (x - newx == 0){
       //this is the scenario for the pawn just moving straight.
       for(int i = y; i<=newy;i++){
-        if(board[y][x].getType() !="e"){
+        if(board[i][x].getType() !="e"){
           good = false;
           //returns false if any of the tiles from the current location to the new location are occupied.
         }
