@@ -29,9 +29,28 @@ public class Chess{
         if(i == 1|| i == 6){
           board[i][j] = new Pawn();
         }
+        else if(i == 0 || i == 7){
+          if(j == 0 || j ==7){
+            board[i][j] = new Rook();
+          }
+          else if(j == 1 || j ==6){
+            board[i][j] = new Knight();
+          }
+          else if(j == 2 || j ==5){
+            board[i][j] = new Bishop();
+          }
+          else if(j == 3){
+            board[i][j] = new Queen();
+          }
+          else if(j == 4){
+            board[i][j] = new King();
+          }
+          //Puts all the pieces in the right place.
+        }
         else{
           board[i][j] = new Piece();
         }
+        //sets the colors after all the pieces have been placed.
         if(i<2 && board[i][j].getType() != "e"){
           board[i][j].setColor("B");
           //This will set the color to black for every piece on the top 2 rows that isn't empty.
