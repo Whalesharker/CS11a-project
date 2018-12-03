@@ -69,7 +69,7 @@ public class Chess{
     return board;
   }
 
-  public static Piece[][] Priority(Piece[][] board){
+/*  public static Piece[][] Priority(Piece[][] board){
     //The purpose of this method is to decide which move it should make of all its possible movements
     for(int i = 0; i < board.length;i++){
       for(int j = 0; j < board.length;j++){
@@ -105,5 +105,5 @@ public class Chess{
       }
     }
     return priority[i][j];
-  }
+  }*/
 }
