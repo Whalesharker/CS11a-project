@@ -49,7 +49,6 @@ public class Chess{
         }
         else{
           board[i][j] = new Piece();
-          System.out.println(i + " "+ j +(i == 1|| i == 6));
         }
         //sets the colors after all the pieces have been placed.
         if(i<2 && board[i][j].getType() != "e"){

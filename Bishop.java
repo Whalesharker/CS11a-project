@@ -30,4 +30,8 @@ public class Bishop extends Piece{
     }
   return valid;
   }
+  public String getType(){
+    return "B";
+    //I wanted to change the type variable of the class but that wasn't working.
+  }
 }

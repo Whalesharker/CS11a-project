@@ -33,4 +33,8 @@ public class Rook extends Piece{
     }
   return valid;
   }
+  public String getType(){
+    return "R";
+    //I wanted to change the type variable of the class but that wasn't working.
+  }
 }

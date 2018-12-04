@@ -311,4 +311,8 @@ public class King extends Piece{
     }
   return check;
   }
+  public String getType(){
+    return "K";
+    //I wanted to change the type variable of the class but that wasn't working.
+  }
 }
