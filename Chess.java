@@ -6,13 +6,16 @@ public class Chess{
     printIndex(board);
     boolean c = true;
     do{
+      printBoard(board);
       if(board[6][6].moveValid(6,6,6,5,board)){
         board = move(6,6,6,5,board);
+        printBoard(board);
       }
       else{
         System.out.println("Orca");
       }
       Player = ColorChange(Player);
+      break;
     }while (c == true);
     printBoard(board);
     //Alright, thing to note: the first index is y and the 2nd one is x. Yup. That's confusing.
@@ -46,6 +49,7 @@ public class Chess{
         }
         else{
           board[i][j] = new Piece();
+          System.out.println(i + " "+ j +(i == 1|| i == 6));
         }
         //sets the colors after all the pieces have been placed.
         if(i<2 && board[i][j].getType() != "e"){
@@ -95,6 +99,9 @@ public class Chess{
       return "B";
     }
     if (Player == "B"){
+      return "W";
+    }
+    else{
       return "W";
     }
   }

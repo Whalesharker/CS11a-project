@@ -13,7 +13,9 @@ public class Queen extends Piece{
       //If they're both 0 then the piece isn't moving and bleep you
       valid =false;
     }
-    if(Math.abs(newx- x))
+    if(Math.abs(newx- x) == 1){
+      //FILLER CODE SO I CAN TEST THE CHESS FILE. DELETE LATER!
+    }
     else{
       if((Math.abs(newx - x) == 0)){
         for(int i = y; i<newy;i++){
