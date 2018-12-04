@@ -5,6 +5,7 @@ public class King extends Piece{
     System.out.println("King can move one space in any direction");
   }
   public boolean moveValid(int x, int y, int newx, int newy, Piece[][] board){
+    String Player = getColor();
     boolean valid = true;
     if (Math.abs(newx-x)>1 && Math.abs(newy-y)>1){
       valid = false;
@@ -14,18 +15,19 @@ public class King extends Piece{
       valid = false;
     }
     if (Player == "W"){
-      if (WhiteCheck == true){
+      if (WhiteCheck(x,y,newx,newy,board,Player) == true){
         valid = false;
       }
     }
     else if (Player == "B"){
-      if (BlackCheck == true){
+      if (BlackCheck(x,y,newx,newy,board,Player) == true){
         valid = false;
       }
     }
+    return valid;
   }
   //makes sure black king cane move without putting itself into check
-  public boolean WhiteCheck(int x, int y, int newx, int newy, Piece[][] board){
+  public boolean WhiteCheck(int x, int y, int newx, int newy, Piece[][] board,String Player){
     boolean check = false;
     //checks for check from Rooks and Queens
     //could probably be separated into classes for each piece on the board
@@ -81,8 +83,8 @@ public class King extends Piece{
           }
         }
       }
-      if (newx+i && newy-i>0){
-        if(board[newx+i][newy-i].getType()=="B"||board[newx+i][newy-i]=="Q"){
+      if (newx+i >0 && newy-i>0){
+        if(board[newx+i][newy-i].getType()=="B"||board[newx+i][newy-i].getType()=="Q"){
           if (board[newx+i][newy-i].getColor()=="B"){
             for (int j = 1; j<i; j++){
               if(board[newx+j][newy-j].getType()!="e"){
@@ -165,8 +167,9 @@ public class King extends Piece{
         }
       }
     }
+    return check;
   }
-  public boolean BlackCheck(int x, int y, int newx, int newy, Piece[][] board){
+  public boolean BlackCheck(int x, int y, int newx, int newy, Piece[][] board,String Player){
     boolean check = false;
     //checks for check from Rooks and Queens
     //could probably be separated into classes for each piece on the board
@@ -222,8 +225,8 @@ public class King extends Piece{
           }
         }
       }
-      if (newx+i && newy-i>0){
-        if(board[newx+i][newy-i].getType()=="B"||board[newx+i][newy-i]=="Q"){
+      if (newx+i >0 && newy-i>0){
+        if(board[newx+i][newy-i].getType()=="B"||board[newx+i][newy-i].getType()=="Q"){
           if (board[newx+i][newy-i].getColor()=="B"){
             for (int j = 1; j<i; j++){
               if(board[newx+j][newy-j].getType()!="e"){
@@ -306,5 +309,6 @@ public class King extends Piece{
         }
       }
     }
+  return check;
   }
 }
