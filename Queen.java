@@ -1,6 +1,5 @@
 public class Queen extends Piece{
   public String type ="Q";
-  firstmove= true;
   public static void main(String[] args){
     System.out.println("The Queen can move diagonally,backwards,forwards and sideways");
   }

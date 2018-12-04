@@ -89,8 +89,8 @@ public class Chess{
     //(Unless it's a king or an allied piece.)
     return board;
   }
-  public String Player ="W";
-  public String ColorChange(Player args){
+  public static String Player ="W";
+  public static String ColorChange(String Player){
     if (Player =="W"){
       return "B";
     }
