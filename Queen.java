@@ -13,9 +13,6 @@ public class Queen extends Piece{
       //If they're both 0 then the piece isn't moving and bleep you
       valid =false;
     }
-    if(Math.abs(newx- x) == 1){
-      //FILLER CODE SO I CAN TEST THE CHESS FILE. DELETE LATER!
-    }
     else{
       if((Math.abs(newx - x) == 0)){
         for(int i = y; i<newy;i++){
@@ -33,10 +30,32 @@ public class Queen extends Piece{
         }
       }
     }
-  return valid;
+    if(Math.abs(newy-y)>0&&Math.abs(newx-x)>0){
+
+
+      if(Math.abs(newx-x) != Math.abs(newy-y)){
+        valid = false;
+      //checks to make sure an equal number of spaces are being moved verticly and horizontally.
+      //(AKA diagnoally);
+    }
+      else{
+        int j = x;
+        for(int i = y; i<newy;i++){
+        if(x < newx){
+          j = j+1;
+        }
+        else{
+          j = j-1;
+        }
+        //I think this should sync up the x and y coordinates so it actually checks the things from a diagnoally route.
+        //Also checks if it's moving up or down in x.
+        if(board[i][j].getType() !="e"){
+          valid = false;
+          //returns false if any of the tiles from the current location to the new location are occupied.
+        }
+      }
+    }
   }
-  public String getType(){
-    return "Q";
-    //I wanted to change the type variable of the class but that wasn't working.
+  return valid;
   }
 }
