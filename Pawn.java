@@ -15,9 +15,11 @@ public class Pawn extends Piece{
       //moving the pawn more than 2 spaces or less than 1 space verticly.
       //TODO: make it so that black pawns can only move down and white pawns can only move up.
       good = false;
+      System.out.println("Pawns can't move more than 2 or less than 1 space verticly");
     }
     else if(Math.abs(y-newy) == 2 && firstmove == false){
       good = false;
+      System.out.println("Pawns can only move 2 spaces forward on their first move.");
     }
     else if(Math.abs(x - newx) == 1 && Math.abs(y-newy) >= 2){
       good = false;
@@ -27,10 +29,23 @@ public class Pawn extends Piece{
     //if it clears all the instant nopes it should run this:
     else if (x - newx == 0){
       //this is the scenario for the pawn just moving straight.
-      for(int i = y; i<=newy;i++){
-        if(board[i][x].getType() !="e"){
-          good = false;
-          //returns false if any of the tiles from the current location to the new location are occupied.
+      if(color == "W"){
+        for(int i = y; i<=newy;i++){
+          System.out.println(i);
+          if(board[i][x].getType() !="e"){
+            good = false;
+            //returns false if any of the tiles from the current location to the new location are occupied.
+          }
+        }
+      }
+      else{
+        for(int i = newy; i<y;i--){
+          //it has to go in reverse for black
+          System.out.println(i);
+          if(board[i][x].getType() !="e"){
+            good = false;
+            //returns false if any of the tiles from the current location to the new location are occupied.
+          }
         }
       }
     }

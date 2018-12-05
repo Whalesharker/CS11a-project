@@ -1,23 +1,52 @@
 public class Chess{
+  public static String Player ="W";
   public static void main(String[] args) {
     Piece[][] board = initialize();
-    printBoard(board);
-    System.out.println("");
-    printIndex(board);
     boolean c = true;
     do{
+      System.out.println(Player +"'s turn");
+      System.out.println("Tile Indexes:");
+      //extra whitespace to sepperate things.
+      printIndex(board);
+      System.out.println("");
+      //printIndex so the player knows what piece is what index.
       printBoard(board);
-      if(board[6][6].moveValid(6,6,6,5,board)){
-        board = move(6,6,6,5,board);
-        printBoard(board);
-      }
-      else{
-        System.out.println("Orca");
+      System.out.println("");
+      boolean entered = false;
+      //This will test if a valid move has been entered.
+      while (entered == false){
+        int y = TextIO.getInt();
+        int x = TextIO.getInt();
+        int newy = TextIO.getInt();
+        int newx = TextIO.getInt();
+        System.out.printf("%s%s at %d,%d selected to go to %d,%d which is occupied by %s%s.",board[y][x].getColor(),board[y][x].getType(),y,x,newy,newx,board[newy][newx].getColor(),board[newy][newx].getType());
+        //just getInt so it can just take all the inputs on one line.
+        if((y < 0 || y>7 || x < 0 || x>7 || newy < 0 || newx>7 || newx < 0 || newy>7 || board[y][x].getColor()!= Player) == false){
+          //this if statement checks to make sure the points are actually on the board. Otherwise an error would happen.
+
+          entered = board[y][x].moveValid(x,y,newx,newy,board);
+        }
+        if(entered == false){
+          if(board[y][x].getColor()!= Player){
+            if(board[y][x].getColor() == ""){
+              System.out.println("There's nothing there...");
+            }
+            else{
+              System.out.println("That's not your piece. It's "+ Player +"'s turn");
+            }
+          }
+          System.out.println("Invalid Move");
+          System.out.println("Enter moves in format: y x new-y new-x");
+        }
+        else{
+          move(x,y,newx,newy,board);
+        }
+
+
+
       }
       Player = ColorChange(Player);
-      break;
     }while (c == true);
-    printBoard(board);
     //Alright, thing to note: the first index is y and the 2nd one is x. Yup. That's confusing.
 
   }
@@ -92,7 +121,6 @@ public class Chess{
     //(Unless it's a king or an allied piece.)
     return board;
   }
-  public static String Player ="W";
   public static String ColorChange(String Player){
     if (Player =="W"){
       return "B";
