@@ -6,7 +6,7 @@ public class Knight extends Piece{
     System.out.println("Knights can move in an L shape. They are also the only piece which can jump over other pieces.");
   }
   public boolean moveValid(int x, int y, int newx, int newy, Piece[][] board){
-    if(Math.abs(x-newx) == 3 && Math.abs(y-newy) == 1 || Math.abs(x-newx) ==1 && Math.abs(y-newy) == 3){
+    if(Math.abs(x-newx) == 2 && Math.abs(y-newy) == 1 || Math.abs(x-newx) ==1 && Math.abs(y-newy) == 2){
       return true;
     }
     else{
