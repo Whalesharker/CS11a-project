@@ -16,17 +16,37 @@ public class Rook extends Piece{
     }
     else{
       if((Math.abs(newx - x) == 0)){
-        for(int i = y; i<newy;i++){
-          if(board[i][x].getType() !="e"){
-            valid = false;
-          //returns false if any of the tiles from the current location to the new location are occupied.
+        if(y < newy){
+          for(int i = y; i<newy;i++){
+            if(board[i][x].getType() !="e"){
+              valid = false;
+            //returns false if any of the tiles from the current location to the new location are occupied.
+            }
+          }
+        }
+        else{
+          for(int i = y; i>newy;i--){
+            if(board[i][x].getType() !="e"){
+              valid = false;
+              //have to go the other direction.
+            }
           }
         }
       }
       else if((Math.abs(newy - y) == 0)){
-        for(int i = x; i<newx;i++){
-          if(board[y][i].getType() !="e"){
-            valid = false;
+        if(x < newx){
+          for(int i = x; i<newx;i++){
+            if(board[y][i].getType() !="e"){
+              valid = false;
+            }
+          }
+        }
+        else{
+          for(int i = x; i>newx;i--){
+            if(board[y][i].getType() !="e"){
+              valid = false;
+              //Checking the opposite direction.
+            }
           }
         }
       }

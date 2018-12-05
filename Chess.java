@@ -19,12 +19,14 @@ public class Chess{
         int x = TextIO.getInt();
         int newy = TextIO.getInt();
         int newx = TextIO.getInt();
-        System.out.printf("%s%s at %d,%d selected to go to %d,%d which is occupied by %s%s.",board[y][x].getColor(),board[y][x].getType(),y,x,newy,newx,board[newy][newx].getColor(),board[newy][newx].getType());
+        //System.out.printf("%s%s at %d,%d selected to go to %d,%d which is occupied by %s%s.",board[y][x].getColor(),board[y][x].getType(),y,x,newy,newx,board[newy][newx].getColor(),board[newy][newx].getType());
         //just getInt so it can just take all the inputs on one line.
-        if((y < 0 || y>7 || x < 0 || x>7 || newy < 0 || newx>7 || newx < 0 || newy>7 || board[y][x].getColor()!= Player) == false){
+        if((y < 0 || y>7 || x < 0 || x>7 || newy < 0 || newx>7 || newx < 0 || newy>7) == false){
           //this if statement checks to make sure the points are actually on the board. Otherwise an error would happen.
-
-          entered = board[y][x].moveValid(x,y,newx,newy,board);
+          if  (board[y][x].getColor()== Player){
+            //checks to make that it's the right player
+            entered = board[y][x].moveValid(x,y,newx,newy,board);
+          }
         }
         if(entered == false){
           if(board[y][x].getColor()!= Player){
